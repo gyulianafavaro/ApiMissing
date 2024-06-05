@@ -10,11 +10,15 @@ namespace Api.Data
 
         }
 
-        public DbSet<UsersModel> User { get; set; }
+        public DbSet<UsuariosModel> Usuario { get; set; }
+        public DbSet<PessoasModel> Pessoa { get; set; }
+        public DbSet<ObservacoesModel> Observacao { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new UsersMap());
+            modelBuilder.ApplyConfiguration(new UsuariosMap());
+            modelBuilder.ApplyConfiguration(new PessoasMap());
+            modelBuilder.ApplyConfiguration(new ObservacoesMap());
             base.OnModelCreating(modelBuilder);
         }
 
