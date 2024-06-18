@@ -6,7 +6,7 @@
 
         public string UsuarioEmail { get; set; } = string.Empty;
 
-        public string UsuarioSenha { get; set; } = string.Empty;
+        public string UsuarioPassword { get; set; } = string.Empty;
 
         public string UsuarioNome { get; set; } = string.Empty;
 

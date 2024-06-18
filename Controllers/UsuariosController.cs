@@ -1,4 +1,5 @@
 ﻿using Api.Models;
+using Api.Repositorios;
 using Api.Repositorios.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +24,12 @@ namespace Api.Controllers
             return Ok(usuarios);
         }
 
+        [HttpPost("Login")]
+        public async Task<ActionResult<UsuariosModel>> Login([FromBody] UsuariosModel usuarioModel)
+        {
+            UsuariosModel usuario = await _usuariosRepositorio.Login(usuarioModel.UsuarioEmail, usuarioModel.UsuarioPassword);
+            return Ok(usuario);
+        }
         [HttpGet("GetUsuarioId/{id}")]
         public async Task<ActionResult<UsuariosModel>> GetUsuarioId(int id)
         {
@@ -30,10 +37,11 @@ namespace Api.Controllers
             return Ok(usuario);
         }
 
-        [HttpPost("CreateUsuario")]
-        public async Task<ActionResult<UsuariosModel>> InsertUsuario([FromBody] UsuariosModel usuarioModel)
+        
+        [HttpPost("InsertUsuario")]
+        public async Task<ActionResult<UsuariosModel>> InsertUsuario([FromBody] UsuariosModel usuariosModel)
         {
-            UsuariosModel usuario = await _usuariosRepositorio.InsertUsuario(usuarioModel);
+            UsuariosModel usuario = await _usuariosRepositorio.InsertUsuario(usuariosModel);
             return Ok(usuario);
         }
 

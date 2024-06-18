@@ -1,4 +1,5 @@
 ﻿using Api.Models;
+using Api.Repositorios;
 using Api.Repositorios.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -32,6 +33,12 @@ namespace Api.Controllers
 
         [HttpPost("CreatePessoas")]
         public async Task<ActionResult<PessoasModel>> InsertUsuario([FromBody] PessoasModel pessoasModel)
+        {
+            PessoasModel pessoa = await _pessoasRepositorio.InsertPessoas(pessoasModel);
+            return Ok(pessoa);
+        }
+        [HttpPost("InsertPessoas")]
+        public async Task<ActionResult<PessoasModel>> InsertPessoas([FromBody] PessoasModel pessoasModel)
         {
             PessoasModel pessoa = await _pessoasRepositorio.InsertPessoas(pessoasModel);
             return Ok(pessoa);

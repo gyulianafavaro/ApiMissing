@@ -14,8 +14,8 @@ namespace Api.Data
             builder.Property(x => x.PessoaStatus).IsRequired().HasMaxLength(255);
             builder.Property(x => x.PessoaCor).IsRequired().HasMaxLength(255);
             builder.Property(x => x.PessoaRoupa).IsRequired().HasMaxLength(255);
-            builder.Property(x => x.PessoaDtDesaparecimento).IsRequired().HasMaxLength(255);
-            builder.Property(x => x.PessoaDtEncontro).IsRequired().HasMaxLength(255);
+            builder.Property(x => x.PessoaDtDesaparecimento).IsRequired();
+            builder.Property(x => x.PessoaDtEncontro);
             builder.Property(x => x.PessoaLocalDesaparecimento).IsRequired().HasMaxLength(255);
             builder.Property(x => x.PessoaObservacao).IsRequired().HasMaxLength(255);
             builder.Property(x => x.PessoaSexo).IsRequired().HasMaxLength(255);

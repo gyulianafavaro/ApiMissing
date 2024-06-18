@@ -10,9 +10,9 @@
         public string PessoaObservacao { get; set; } = string.Empty;
         public string PessoaLocalDesaparecimento { get; set; } = string.Empty;
         public string PessoaFoto { get; set; } = string.Empty;
-        public DateTime PessoaDtDesaparecimento { get; set; }
-        public DateTime PessoaDtEncontro { get; set; }
-        public Byte PessoaStatus { get; set; }
+        public DateTime PessoaDtDesaparecimento { get; set; } = DateTime.MinValue;
+        public DateTime? PessoaDtEncontro { get; set; }
+        public byte PessoaStatus { get; set; }
         public int UsuarioId { get; set; }
 
         public static implicit operator List<object>(PessoasModel v)

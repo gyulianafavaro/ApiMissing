@@ -14,7 +14,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddEntityFrameworkSqlServer()
     .AddDbContext<Contexto>(
     options => options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase"))
-    );
+);
 
 
 builder.Services.AddScoped<IUsuariosRepositorio,UsuariosRepositorio>();
