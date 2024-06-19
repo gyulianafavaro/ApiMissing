@@ -17,16 +17,16 @@ namespace Api.Repositorios
 
             public async Task<List<ObservacoesModel>> GetAll()
             {
-                return await _dbContext.Observacao.ToListAsync();
+                return await _dbContext.Observacoes.ToListAsync();
             }
             public async Task<ObservacoesModel> GetById(int id)
             {
-                return await _dbContext.Observacao
+                return await _dbContext.Observacoes
                                        .FirstOrDefaultAsync(x => x.ObservacaoId == id);
             }
             public async Task<ObservacoesModel> InsertObservacoes(ObservacoesModel observacao)
             {
-                await _dbContext.Observacao.AddAsync(observacao);
+                await _dbContext.Observacoes.AddAsync(observacao);
                 await _dbContext.SaveChangesAsync();
                 return observacao;
             }
@@ -45,7 +45,7 @@ namespace Api.Repositorios
                     observacoes.ObservacaoData = observacao.ObservacaoData;
                     observacoes.UsuarioId = observacao.UsuarioId;
                     observacoes.PessoaId = observacao.PessoaId;
-                    _dbContext.Observacao.Update(observacoes);
+                    _dbContext.Observacoes.Update(observacoes);
                     await _dbContext.SaveChangesAsync();
                 }
                 return observacao;
@@ -59,7 +59,7 @@ namespace Api.Repositorios
                     throw new Exception("Não encontrado.");
                 }
 
-                _dbContext.Observacao.Remove(observacoes);
+                _dbContext.Observacoes.Remove(observacoes);
                 await _dbContext.SaveChangesAsync();
                 return true;
             }

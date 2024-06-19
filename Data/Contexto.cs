@@ -12,7 +12,7 @@ namespace Api.Data
 
         public DbSet<UsuariosModel> Usuario { get; set; }
         public DbSet<PessoasModel> Pessoa { get; set; }
-        public DbSet<ObservacoesModel> Observacao { get; set; }
+        public DbSet<ObservacoesModel> Observacoes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
